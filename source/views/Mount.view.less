@@ -1,12 +1,29 @@
 @import "./Styles.view.less";
 
-.Frame {
+* {
+    margin: 0px;
+    padding: 0px;
+
+    cursor: default;
+    box-sizing: border-box;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+body {
+    background-color: #111;
+}
+
+.Mount {
     padding: 1em;
 
-    color: @black;
+    color: @white;
     text-align: center;
-    font-family: comfortaa;
-    background-color: @white;
+    font-family: Roboto, Helvetica, sans-serif;
 
     img {
         width: 5em;

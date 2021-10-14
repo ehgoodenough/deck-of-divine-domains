@@ -16,9 +16,11 @@
     "zip": "bestzip build.zip builds/web/*"
   },
   "dependencies": {
+    "fetchquest": "^1.2.0",
     "keyb": "^1.2.0",
     "preact": "^8.2.7",
     "statgrab": "^1.2.0",
+    "urrl": "^1.0.2",
     "yaafloop": "^1.1.0"
   },
   "devDependencies": {
