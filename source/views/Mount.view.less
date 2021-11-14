@@ -38,7 +38,7 @@ body {
     }
 }
 
-.Dice {
+.D6 {
     width: 100px;
     height: 100px;
     position: relative;
@@ -46,6 +46,8 @@ body {
 
     transition-duration: 1s;
     transition-property: transform;
+
+    // opacity: 50%;
 
     &.roll-to-1 { transform: rotateX(720deg) rotateZ(-720deg); }
     &.roll-to-6 { transform: rotateX(-900deg) rotateZ(1080deg); }

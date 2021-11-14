@@ -20,7 +20,7 @@ class Content {
     render() {
         return (
             <div class="DiceScreen">
-                <D6/>
+                <D6 number={State.number}/>
                 <RerollButton/>
             </div>
         )
@@ -44,7 +44,7 @@ class RerollButton {
 class D6 {
     render() {
         return (
-            <div class={"Dice roll-to-" + State.number}>
+            <div class={"D6 roll-to-" + this.props.number}>
                 <div class="Side one">
                     <div class="Text">1</div>
                 </div>
@@ -71,7 +71,7 @@ class D6 {
 class DottedD6 {
     render() {
         return (
-            <div class={"Dice roll-to-" + State.number}>
+            <div class={"D6 roll-to-" + this.props.number}>
                 <div class="Side one">
                     <div class="Dot one-1"></div>
                 </div>
