@@ -22,29 +22,30 @@ body {
     padding: 1em;
 
     color: @white;
-    // text-align: center;
     font-family: Roboto, Helvetica, sans-serif;
 }
 
 .RerollButton {
     width: 100px;
     text-align: center;
-    background-color: gray;
+    background-color: @red;
 
     margin-top: 1em;
     border-radius: 5px;
 
     &:hover {
-        background-color: lighten(gray, 15%);
+        background-color: lighten(@red, 15%);
     }
 }
 
 .Dice {
-    position: relative;
     width: 100px;
     height: 100px;
+    position: relative;
     transform-style: preserve-3d;
-    transition: transform 1s;
+
+    transition-duration: 1s;
+    transition-property: transform;
 
     &.roll-to-1 { transform: rotateX(720deg) rotateZ(-720deg); }
     &.roll-to-6 { transform: rotateX(-900deg) rotateZ(1080deg); }
@@ -59,11 +60,14 @@ body {
         line-height: 100px;
         position: absolute;
 
-        color: black;
+        color: @black;
         text-align: center;
-        border: 1px solid #e5e5e5;
-        border-radius: 5px;
         background-color: #FFF;
+
+        border-width: 1px;
+        border-style: solid;
+        border-color: #e5e5e5;
+        border-radius: 5px;
 
         &:nth-child(1) { transform: translateZ(3.1em); }
         &:nth-child(6) { transform: rotateY(90deg) translateZ(3.1em); }
@@ -72,6 +76,10 @@ body {
         &:nth-child(5) { transform: rotateX(-90deg) translateZ(3.1em); }
         &:nth-child(2) { transform: rotateY(-180deg) translateZ(3.1em); }
 
+        .Text {
+            font-size: 60px;
+        }
+
         .Dot {
             width: 20px;
             height: 20px;
@@ -79,8 +87,8 @@ body {
             margin: -10px 5px 5px -10px;
 
             border-radius: 20px;
-            box-shadow: inset 2px 2px black;
-            background-color: lighten(black, 15%);
+            box-shadow: inset 2px 2px @black;
+            background-color: lighten(@black, 15%);
 
             &.two-1, &.three-1, &.four-1, &.five-1, &.six-1 {
                 top: 20%;

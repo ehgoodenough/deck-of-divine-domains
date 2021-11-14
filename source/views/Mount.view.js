@@ -20,8 +20,7 @@ class Content {
     render() {
         return (
             <div class="DiceScreen">
-                <Dice/>
-                <Dice/>
+                <D6/>
                 <RerollButton/>
             </div>
         )
@@ -42,7 +41,34 @@ class RerollButton {
     }
 }
 
-class Dice {
+class D6 {
+    render() {
+        return (
+            <div class={"Dice roll-to-" + State.number}>
+                <div class="Side one">
+                    <div class="Text">1</div>
+                </div>
+                <div class="Side two">
+                    <div class="Text">2</div>
+                </div>
+                <div class="Side three">
+                    <div class="Text">3</div>
+                </div>
+                <div class="Side four">
+                    <div class="Text">4</div>
+                </div>
+                <div class="Side five">
+                    <div class="Text">5</div>
+                </div>
+                <div class="Side six">
+                    <div class="Text">6</div>
+                </div>
+            </div>
+        )
+    }
+}
+
+class DottedD6 {
     render() {
         return (
             <div class={"Dice roll-to-" + State.number}>
