@@ -1,6 +1,5 @@
 require("statgrab/do")
 
-import render from "render.js"
-import state from "state.js"
+import render from "logic/Render.js"
 
 render()

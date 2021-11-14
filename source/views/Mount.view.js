@@ -1,5 +1,8 @@
 import Preact from "preact"
-import state from "state.js"
+
+import State from "logic/State.js"
+import Render from "logic/Render.js"
+import Random from "logic/Random.js"
 
 import "views/Mount.view.less"
 
@@ -15,46 +18,66 @@ export default class Mount {
 
 class Content {
     render() {
-        return <Dice/>
+        return (
+            <div class="DiceScreen">
+                <Dice/>
+                <Dice/>
+                <RerollButton/>
+            </div>
+        )
+    }
+}
+
+class RerollButton {
+    render() {
+        return (
+            <div class="RerollButton" onClick={this.onClick}>
+                Reroll
+            </div>
+        )
+    }
+    onClick() {
+        State.number = Random.integer(1, 6)
+        Render()
     }
 }
 
 class Dice {
     render() {
         return (
-            <div class="dice">
-                <div class="side one">
-                    <div class="dot one-1"></div>
+            <div class={"Dice roll-to-" + State.number}>
+                <div class="Side one">
+                    <div class="Dot one-1"></div>
                 </div>
-                <div class="side two">
-                    <div class="dot two-1"></div>
-                    <div class="dot two-2"></div>
+                <div class="Side two">
+                    <div class="Dot two-1"></div>
+                    <div class="Dot two-2"></div>
                 </div>
-                <div class="side three">
-                    <div class="dot three-1"></div>
-                    <div class="dot three-2"></div>
-                    <div class="dot three-3"></div>
+                <div class="Side three">
+                    <div class="Dot three-1"></div>
+                    <div class="Dot three-2"></div>
+                    <div class="Dot three-3"></div>
                 </div>
-                <div class="side four">
-                    <div class="dot four-1"></div>
-                    <div class="dot four-2"></div>
-                    <div class="dot four-3"></div>
-                    <div class="dot four-4"></div>
+                <div class="Side four">
+                    <div class="Dot four-1"></div>
+                    <div class="Dot four-2"></div>
+                    <div class="Dot four-3"></div>
+                    <div class="Dot four-4"></div>
                 </div>
-                <div class="side five">
-                    <div class="dot five-1"></div>
-                    <div class="dot five-2"></div>
-                    <div class="dot five-3"></div>
-                    <div class="dot five-4"></div>
-                    <div class="dot five-5"></div>
+                <div class="Side five">
+                    <div class="Dot five-1"></div>
+                    <div class="Dot five-2"></div>
+                    <div class="Dot five-3"></div>
+                    <div class="Dot five-4"></div>
+                    <div class="Dot five-5"></div>
                 </div>
-                <div class="side six">
-                    <div class="dot six-1"></div>
-                    <div class="dot six-2"></div>
-                    <div class="dot six-3"></div>
-                    <div class="dot six-4"></div>
-                    <div class="dot six-5"></div>
-                    <div class="dot six-6"></div>
+                <div class="Side six">
+                    <div class="Dot six-1"></div>
+                    <div class="Dot six-2"></div>
+                    <div class="Dot six-3"></div>
+                    <div class="Dot six-4"></div>
+                    <div class="Dot six-5"></div>
+                    <div class="Dot six-6"></div>
                 </div>
             </div>
         )

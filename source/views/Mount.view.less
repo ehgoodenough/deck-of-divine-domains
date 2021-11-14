@@ -22,33 +22,48 @@ body {
     padding: 1em;
 
     color: @white;
-    text-align: center;
+    // text-align: center;
     font-family: Roboto, Helvetica, sans-serif;
 }
 
-.dice {
+.RerollButton {
+    width: 100px;
+    text-align: center;
+    background-color: gray;
+
+    margin-top: 1em;
+    border-radius: 5px;
+
+    &:hover {
+        background-color: lighten(gray, 15%);
+    }
+}
+
+.Dice {
     position: relative;
     width: 100px;
     height: 100px;
     transform-style: preserve-3d;
     transition: transform 1s;
 
-    .roll-to-1 { transform: rotateX(720deg) rotateZ(-720deg); }
-    .roll-to-6 { transform: rotateX(-900deg) rotateZ(1080deg); }
-    .roll-to-3 { transform: rotateY(-450deg) rotateZ(-1440deg); }
-    .roll-to-4 { transform: rotateY(810deg) rotateZ(720deg); }
-    .roll-to-5 { transform: rotateX(-810deg) rotateZ(-1080deg); }
-    .roll-to-2 { transform: rotateX(450deg) rotateZ(-720deg); }
+    &.roll-to-1 { transform: rotateX(720deg) rotateZ(-720deg); }
+    &.roll-to-6 { transform: rotateX(-900deg) rotateZ(1080deg); }
+    &.roll-to-3 { transform: rotateY(-450deg) rotateZ(-1440deg); }
+    &.roll-to-4 { transform: rotateY(810deg) rotateZ(720deg); }
+    &.roll-to-5 { transform: rotateX(-810deg) rotateZ(-1080deg); }
+    &.roll-to-2 { transform: rotateX(450deg) rotateZ(-720deg); }
 
-    .side {
-        position: absolute;
-        background-color: #ffF;
-        border-radius:5px;
+    .Side {
         width: 100px;
         height: 100px;
-        border: 1px solid #e5e5e5;
+        line-height: 100px;
+        position: absolute;
+
+        color: black;
         text-align: center;
-        line-height: 2em;
+        border: 1px solid #e5e5e5;
+        border-radius: 5px;
+        background-color: #FFF;
 
         &:nth-child(1) { transform: translateZ(3.1em); }
         &:nth-child(6) { transform: rotateY(90deg) translateZ(3.1em); }
@@ -57,14 +72,15 @@ body {
         &:nth-child(5) { transform: rotateX(-90deg) translateZ(3.1em); }
         &:nth-child(2) { transform: rotateY(-180deg) translateZ(3.1em); }
 
-        .dot {
-            position: absolute;
+        .Dot {
             width: 20px;
             height: 20px;
+            position: absolute;
             margin: -10px 5px 5px -10px;
+
             border-radius: 20px;
-            background-color: #ef233c;
-            box-shadow: inset 2px 2px #d90429;
+            box-shadow: inset 2px 2px black;
+            background-color: lighten(black, 15%);
 
             &.two-1, &.three-1, &.four-1, &.five-1, &.six-1 {
                 top: 20%;
