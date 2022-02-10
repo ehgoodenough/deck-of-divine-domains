@@ -6,6 +6,33 @@ import Random from "logic/Random.js"
 
 import "views/Mount.view.less"
 
+const domains = [
+    {"symbol": "⚔️", "name": "War", "number": 1},
+    {"symbol": "❤️", "name": "Love", "number": 2},
+    {"symbol": "💀", "name": "Death", "number": 3},
+    {"symbol": "🔨", "name": "Forge", "number": 4},
+    {"symbol": "⛈️", "name": "Storms", "number": 5},
+    {"symbol": "🌊", "name": "Water", "number": 6},
+    {"symbol": "🔥", "name": "Fire", "number": 7},
+    {"symbol": "🌿", "name": "Flora", "number": 8},
+    {"symbol": "⛰️", "name": "Earth", "number": 9},
+    {"symbol": "🌌", "name": "Sky", "number": 10},
+    {"symbol": "☀️", "name": "Light", "number": 11},
+    {"symbol": "🌑", "name": "Dark", "number": 12},
+    {"symbol": "✨", "name": "Beauty", "number": 13},
+    {"symbol": "💤", "name": "Dreams", "number": 14},
+    {"symbol": "�️", "name": "Fate", "number": 15},
+    {"symbol": "🔮", "name": "Magic", "number": 16},
+    {"symbol": "📚", "name": "Knowledge", "number": 17},
+    {"symbol": "🤏", "name": "Trickery", "number": 18},
+    {"symbol": "😊", "name": "Joy", "number": 19},
+    {"symbol": "⚖️", "name": "Justice", "number": 20},
+    {"symbol": "🎭", "name": "Art", "number": 21},
+    {"symbol": "⏳", "name": "Time", "number": 22},
+    {"symbol": "🎲", "name": "Luck", "number": 23},
+    {"symbol": "👑", "name": "Wealth", "number": 24},
+]
+
 export default class Mount {
     render() {
         return (
@@ -19,91 +46,29 @@ export default class Mount {
 class Content {
     render() {
         return (
-            <div class="DiceScreen">
-                <D6 number={State.number}/>
-                <RerollButton/>
+            <div class="CardScreen">
+                <Card domain={domains[0]}/>
+                <Card domain={domains[1]}/>
+                <Card domain={domains[2]}/>
+                <Card domain={domains[3]}/>
+                <Card domain={domains[4]}/>
             </div>
         )
     }
 }
 
-class RerollButton {
+class Card {
     render() {
+        if(this.props.domain == undefined) return
         return (
-            <div class="RerollButton" onClick={this.onClick}>
-                Reroll
-            </div>
-        )
-    }
-    onClick() {
-        State.number = Random.integer(1, 6)
-        Render()
-    }
-}
-
-class D6 {
-    render() {
-        return (
-            <div class={"D6 roll-to-" + this.props.number}>
-                <div class="Side one">
-                    <div class="Text">1</div>
-                </div>
-                <div class="Side two">
-                    <div class="Text">2</div>
-                </div>
-                <div class="Side three">
-                    <div class="Text">3</div>
-                </div>
-                <div class="Side four">
-                    <div class="Text">4</div>
-                </div>
-                <div class="Side five">
-                    <div class="Text">5</div>
-                </div>
-                <div class="Side six">
-                    <div class="Text">6</div>
-                </div>
-            </div>
-        )
-    }
-}
-
-class DottedD6 {
-    render() {
-        return (
-            <div class={"D6 roll-to-" + this.props.number}>
-                <div class="Side one">
-                    <div class="Dot one-1"></div>
-                </div>
-                <div class="Side two">
-                    <div class="Dot two-1"></div>
-                    <div class="Dot two-2"></div>
-                </div>
-                <div class="Side three">
-                    <div class="Dot three-1"></div>
-                    <div class="Dot three-2"></div>
-                    <div class="Dot three-3"></div>
-                </div>
-                <div class="Side four">
-                    <div class="Dot four-1"></div>
-                    <div class="Dot four-2"></div>
-                    <div class="Dot four-3"></div>
-                    <div class="Dot four-4"></div>
-                </div>
-                <div class="Side five">
-                    <div class="Dot five-1"></div>
-                    <div class="Dot five-2"></div>
-                    <div class="Dot five-3"></div>
-                    <div class="Dot five-4"></div>
-                    <div class="Dot five-5"></div>
-                </div>
-                <div class="Side six">
-                    <div class="Dot six-1"></div>
-                    <div class="Dot six-2"></div>
-                    <div class="Dot six-3"></div>
-                    <div class="Dot six-4"></div>
-                    <div class="Dot six-5"></div>
-                    <div class="Dot six-6"></div>
+            <div class="Card">
+                <div class="Content">
+                    <div class="Name">
+                        {this.props.domain.name}
+                    </div>
+                    <div class="Symbol">
+                        {this.props.domain.symbol}
+                    </div>
                 </div>
             </div>
         )

@@ -14,6 +14,19 @@
     user-select: none;
 }
 
+////////////
+// Fonts //
+//////////
+
+@font-face {
+    font-family: tarot;
+    src: url("../fonts/tarot.ttf") format("truetype");
+}
+
+/////////////
+// Styles //
+///////////
+
 body {
     background-color: #111;
 }
@@ -25,107 +38,44 @@ body {
     font-family: Roboto, Helvetica, sans-serif;
 }
 
-.RerollButton {
-    width: 100px;
-    text-align: center;
-    background-color: @red;
+.Card {
+    @border-width: 0.3em;
 
-    margin-top: 1em;
-    border-radius: 5px;
+    font-size: 1.2em;
 
-    &:hover {
-        background-color: lighten(@red, 15%);
-    }
-}
+    width: 8em;
+    height: 12em;
+    padding: @border-width;
+    display: inline-block;
+    margin-right: 1em;
 
-.D6 {
-    width: 100px;
-    height: 100px;
-    position: relative;
-    transform-style: preserve-3d;
+    border-width: @border-width;
+    border-color: @gold;
+    border-style: solid;
+    border-radius: 0.25em;
+    color: @white;
+    background-color: @black;
 
-    transition-duration: 1s;
-    transition-property: transform;
-
-    // opacity: 50%;
-
-    &.roll-to-1 { transform: rotateX(720deg) rotateZ(-720deg); }
-    &.roll-to-6 { transform: rotateX(-900deg) rotateZ(1080deg); }
-    &.roll-to-3 { transform: rotateY(-450deg) rotateZ(-1440deg); }
-    &.roll-to-4 { transform: rotateY(810deg) rotateZ(720deg); }
-    &.roll-to-5 { transform: rotateX(-810deg) rotateZ(-1080deg); }
-    &.roll-to-2 { transform: rotateX(450deg) rotateZ(-720deg); }
-
-    .Side {
-        width: 100px;
-        height: 100px;
-        line-height: 100px;
-        position: absolute;
-
-        color: @black;
-        text-align: center;
-        background-color: #FFF;
-
-        border-width: 1px;
+    .Content {
+        border-width: 0.1em;
+        border-color: @gold;
         border-style: solid;
-        border-color: #e5e5e5;
-        border-radius: 5px;
+        border-radius: 0.1em;
 
-        &:nth-child(1) { transform: translateZ(3.1em); }
-        &:nth-child(6) { transform: rotateY(90deg) translateZ(3.1em); }
-        &:nth-child(3) { transform: rotateY(-90deg) translateZ(3.1em); }
-        &:nth-child(4) { transform: rotateX(90deg) translateZ(3.1em); }
-        &:nth-child(5) { transform: rotateX(-90deg) translateZ(3.1em); }
-        &:nth-child(2) { transform: rotateY(-180deg) translateZ(3.1em); }
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
-        .Text {
-            font-size: 60px;
+        .Name {
+            font-size: 1.33em;
+            text-align: center;
+            font-family: tarot;
         }
 
-        .Dot {
-            width: 20px;
-            height: 20px;
-            position: absolute;
-            margin: -10px 5px 5px -10px;
-
-            border-radius: 20px;
-            box-shadow: inset 2px 2px @black;
-            background-color: lighten(@black, 15%);
-
-            &.two-1, &.three-1, &.four-1, &.five-1, &.six-1 {
-                top: 20%;
-                left: 20%;
-            }
-
-            &.four-3, &.five-3, &.six-4 {
-                top: 20%;
-                left: 80%;
-            }
-
-            &.one-1, &.three-2, &.five-5 {
-                top: 50%;
-                left: 50%;
-            }
-
-            &.four-2, &.five-2, &.six-3 {
-                top: 80%;
-                left: 20%;
-            }
-
-            &.two-2, &.three-3, &.four-4, &.five-4, &.six-6 {
-                top: 80%;
-                left: 80%;
-            }
-
-            &.six-2 {
-                top: 50%;
-                left: 20%;
-            }
-
-            &.six-5 {
-                top: 50%;
-                left: 80%;
-            }
+        .Symbol {
+            font-size: 4em;
+            text-align: center;
         }
     }
 }
