@@ -39,8 +39,70 @@ body {
     width: 8em;
     height: 12em;
     font-size: 1.2em;
-    border-radius: 0.25em;
-    background-color: @black;
+    position: relative;
+
+    .BottomCard {
+        width: 8em;
+        height: 12em;
+
+        border-radius: 0.25em;
+        background-color: darken(@gold, 15%);
+    }
+
+    .TopCard,
+    .AlmostTopCard {
+        width: 8em;
+        height: 12em;
+
+        border-radius: 0.25em;
+        background-size: cover;
+        background-color: @gold;
+        background-position: center;
+        background-image: url("../images/badcardback.png");
+        box-shadow: 0em 0em 0em transparent;
+
+        top: -1em;
+        position: absolute;
+
+        transform: rotate(0deg);
+        transform-origin: bottom center;
+
+        transition-duration: 0.4s;
+        transition-property: top, transform, box-shadow;
+    }
+
+    .ReshufflePrompt {
+        height: 100%;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+
+        font-family: tarot;
+        text-shadow: 0.1em 0.1em 0.1em @black;
+
+        opacity: 0;
+        transition-delay: 0.2s;
+        transition-duration: 1s;
+        transition-property: opacity;
+    }
+
+    &:hover {
+        .TopCard {
+            transition-duration: 0.2s;
+
+            top: -1.5em;
+            transform: rotate(2deg);
+            box-shadow: 0.2em 0.2em 0.2em @faded-black,
+                        -0.2em 0.2em 0.2em @faded-black;
+        }
+
+        &[hasInteracted] {
+            .ReshufflePrompt {
+                opacity: 1;
+            }
+        }
+    }
 }
 
 .Card {
@@ -59,12 +121,12 @@ body {
         border-style: dashed;
         border-color: fadeout(@white, 80%);
 
-        .CallToAction {
+        .SelectPrompt {
             height: 100%;
             display: flex;
             text-align: center;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
 
             opacity: 0.5;
         }
@@ -102,6 +164,7 @@ body {
 
 .DivineDomainScreen {
     @margin: 1.5rem;
+
     .Prompt {
         font-size: 1.5em;
         text-align: center;

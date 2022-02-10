@@ -95,12 +95,24 @@ class DivineDomainScreen {
 class Deck {
     render() {
         return (
-            <div class="Deck" onClick={this.onClick}/>
+            <div class="Deck" onClick={this.onClick} hasInteracted={this.hasInteracted}>
+                <div class="BottomCard"/>
+                <div class="AlmostTopCard"/>
+                <div class="TopCard">
+                    <div class="ReshufflePrompt">
+                        Reshuffle?
+                    </div>
+                </div>
+            </div>
         )
+    }
+    get hasInteracted() {
+        return state.hasInteracted
     }
     onClick() {
         state.hasInteracted = true
         state.dealt.domains = shuffle(DIVINE_DOMAINS).slice(0, 6)
+        state.selected.domains = []
         render()
     }
 }
@@ -110,7 +122,7 @@ class Card {
         if(this.props.domain == undefined) {
             return (
                 <div class="Empty Card">
-                    <div class="CallToAction">
+                    <div class="SelectPrompt">
                         Choose<br/>One
                     </div>
                 </div>
