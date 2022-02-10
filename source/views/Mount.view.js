@@ -1,10 +1,10 @@
 import Preact from "preact"
-
+import shuffle from "array-shuffle"
 import render from "logic/Render.js"
 
 import "views/Mount.view.less"
 
-const domains = [
+let DIVINE_DOMAINS = [
     {"symbol": "⚔️", "name": "War", "number": 1},
     {"symbol": "❤️", "name": "Love", "number": 2},
     {"symbol": "💀", "name": "Death", "number": 3},
@@ -32,15 +32,9 @@ const domains = [
 ]
 
 const state = {
+    "hasInteracted": false,
     "dealt": {
-        "domains": [
-            domains[0],
-            domains[4],
-            domains[7],
-            domains[10],
-            domains[12],
-            domains[16],
-        ]
+        "domains": []
     },
     "selected": {
         "domains": []
@@ -51,13 +45,13 @@ export default class Mount {
     render() {
         return (
             <div className="Mount">
-                <Content/>
+                <DivineDomainScreen/>
             </div>
         )
     }
 }
 
-class Content {
+class DivineDomainScreen {
     render() {
         return (
             <div class="DivineDomainScreen">
@@ -65,24 +59,49 @@ class Content {
                     For your next player character,
                     <br/>you'll worship a god of:
                 </div>
-                <div class="YourSelectedCards">
-                    <div class="Cards">
-                        <Card domain={state.selected.domains[0]}/>
-                        <div class="Divider">
-                            <div class="Ampersand">&</div>
-                        </div>
-                        <Card domain={state.selected.domains[1]}/>
-                    </div>
-                </div>
-                <div class="YourDealtCards">
-                    <div class="Cards">
-                        {state.dealt.domains.map((domain) => (
-                            <Card domain={domain}/>
-                        ))}
-                    </div>
-                </div>
+                {this.cards}
             </div>
         )
+    }
+    get cards() {
+        if(state.hasInteracted != true) {
+            return (
+                <section class="YourDeck">
+                    <Deck/>
+                </section>
+            )
+        }
+
+        if(state.hasInteracted == true) {
+            return [
+                <section class="YourSelectedCards">
+                    <Deck/>
+                    <Card domain={state.selected.domains[0]}/>
+                    <div class="Divider">
+                        <div class="Ampersand">&</div>
+                    </div>
+                    <Card domain={state.selected.domains[1]}/>
+                </section>,
+                <section class="YourDealtCards">
+                    {state.dealt.domains.map((domain) => (
+                        <Card domain={domain}/>
+                    ))}
+                </section>
+            ]
+        }
+    }
+}
+
+class Deck {
+    render() {
+        return (
+            <div class="Deck" onClick={this.onClick}/>
+        )
+    }
+    onClick() {
+        state.hasInteracted = true
+        state.dealt.domains = shuffle(DIVINE_DOMAINS).slice(0, 6)
+        render()
     }
 }
 
@@ -92,13 +111,13 @@ class Card {
             return (
                 <div class="Empty Card">
                     <div class="CallToAction">
-                        Choose<br/>One!!
+                        Choose<br/>One
                     </div>
                 </div>
             )
         }
         return (
-            <div class="Card" isSelected={this.isSelected} onClick={this.onClick}>
+            <div class="Faceup Card" isSelected={this.isSelected} onClick={this.onClick}>
                 <div class="Content">
                     <div class="Name">
                         {this.props.domain.name}

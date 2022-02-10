@@ -16,6 +16,7 @@
     "zip": "bestzip build.zip builds/web/*"
   },
   "dependencies": {
+    "array-shuffle": "^3.0.0",
     "fetchquest": "^1.2.0",
     "keyb": "^1.2.0",
     "preact": "^8.2.7",
