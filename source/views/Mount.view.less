@@ -28,33 +28,40 @@
 ///////////
 
 body {
+    color: @white;
     background-color: #111;
+
+    font-family: Roboto, Helvetica, sans-serif;
+    font-family: Cambria, serif;
 }
 
 .Mount {
     padding: 1em;
-
-    color: @white;
-    font-family: Roboto, Helvetica, sans-serif;
 }
 
 .Card {
-    @border-width: 0.3em;
-
-    font-size: 1.2em;
-
     width: 8em;
     height: 12em;
-    padding: @border-width;
+    font-size: 1.2em;
+    padding: 0.3em;
     display: inline-block;
-    margin-right: 1em;
 
-    border-width: @border-width;
+    &:not(:last-child) {
+        margin-right: 1em;
+    }
+
+    border-width: 0.3em;
     border-color: @gold;
     border-style: solid;
     border-radius: 0.25em;
+
     color: @white;
     background-color: @black;
+
+    &.Empty {
+        border-style: dashed;
+        border-color: fadeout(@white, 80%);
+    }
 
     .Content {
         border-width: 0.1em;
@@ -77,5 +84,13 @@ body {
             font-size: 4em;
             text-align: center;
         }
+    }
+}
+
+.YourSelection {
+    margin-top: 2em;
+
+    .Prompt {
+        text-align: center;
     }
 }

@@ -1,8 +1,6 @@
 import Preact from "preact"
 
-import State from "logic/State.js"
-import Render from "logic/Render.js"
-import Random from "logic/Random.js"
+import render from "logic/Render.js"
 
 import "views/Mount.view.less"
 
@@ -33,6 +31,12 @@ const domains = [
     {"symbol": "👑", "name": "Wealth", "number": 24},
 ]
 
+const state = {
+    "selected": {
+        "domains": []
+    }
+}
+
 export default class Mount {
     render() {
         return (
@@ -47,11 +51,21 @@ class Content {
     render() {
         return (
             <div class="CardScreen">
-                <Card domain={domains[0]}/>
-                <Card domain={domains[1]}/>
-                <Card domain={domains[2]}/>
-                <Card domain={domains[3]}/>
-                <Card domain={domains[4]}/>
+                <div class="YourHand">
+                    <Card domain={domains[0]}/>
+                    <Card domain={domains[1]}/>
+                    <Card domain={domains[2]}/>
+                    <Card domain={domains[3]}/>
+                    <Card domain={domains[4]}/>
+                    <Card domain={domains[5]}/>
+                </div>
+                <div class="YourSelection">
+                    <div class="Prompt">For your next player character, you'll worship a god of:</div>
+                    <div class="Cards">
+                        <Card domain={state.selected.domains[0]}/>
+                        <Card domain={state.selected.domains[1]}/>
+                    </div>
+                </div>
             </div>
         )
     }
@@ -59,9 +73,14 @@ class Content {
 
 class Card {
     render() {
-        if(this.props.domain == undefined) return
+        if(this.props.domain == undefined) {
+            return (
+                <div class="Empty Card">
+                </div>
+            )
+        }
         return (
-            <div class="Card">
+            <div class="Card" onClick={this.onClick}>
                 <div class="Content">
                     <div class="Name">
                         {this.props.domain.name}
@@ -72,5 +91,28 @@ class Card {
                 </div>
             </div>
         )
+    }
+    get onClick() {
+        return (event) => {
+            if(state.selected.domains.includes(this.props.domain)) {
+                state.selected.domains[state.selected.domains.indexOf(this.props.domain)] = undefined
+                console.log("sfx: removed")
+                return render()
+            }
+
+            if(state.selected.domains.length >= 2) {
+                console.log("sfx: can't do it")
+            }
+
+            if(state.selected.domains[0] == undefined) {
+                state.selected.domains[0] = this.props.domain
+                console.log("sfx: added")
+            } else if(state.selected.domains[1] == undefined) {
+                state.selected.domains[1] = this.props.domain
+                console.log("sfx: added")
+            }
+
+            return render()
+        }
     }
 }
