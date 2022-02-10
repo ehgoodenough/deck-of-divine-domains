@@ -32,6 +32,16 @@ const domains = [
 ]
 
 const state = {
+    "dealt": {
+        "domains": [
+            domains[0],
+            domains[4],
+            domains[7],
+            domains[10],
+            domains[12],
+            domains[16],
+        ]
+    },
     "selected": {
         "domains": []
     }
@@ -50,20 +60,25 @@ export default class Mount {
 class Content {
     render() {
         return (
-            <div class="CardScreen">
-                <div class="YourHand">
-                    <Card domain={domains[0]}/>
-                    <Card domain={domains[1]}/>
-                    <Card domain={domains[2]}/>
-                    <Card domain={domains[3]}/>
-                    <Card domain={domains[4]}/>
-                    <Card domain={domains[5]}/>
+            <div class="DivineDomainScreen">
+                <div class="Prompt">
+                    For your next player character,
+                    <br/>you'll worship a god of:
                 </div>
-                <div class="YourSelection">
-                    <div class="Prompt">For your next player character, you'll worship a god of:</div>
+                <div class="YourSelectedCards">
                     <div class="Cards">
                         <Card domain={state.selected.domains[0]}/>
+                        <div class="Divider">
+                            <div class="Ampersand">&</div>
+                        </div>
                         <Card domain={state.selected.domains[1]}/>
+                    </div>
+                </div>
+                <div class="YourDealtCards">
+                    <div class="Cards">
+                        {state.dealt.domains.map((domain) => (
+                            <Card domain={domain}/>
+                        ))}
                     </div>
                 </div>
             </div>
@@ -76,11 +91,14 @@ class Card {
         if(this.props.domain == undefined) {
             return (
                 <div class="Empty Card">
+                    <div class="CallToAction">
+                        Choose<br/>One!!
+                    </div>
                 </div>
             )
         }
         return (
-            <div class="Card" onClick={this.onClick}>
+            <div class="Card" isSelected={this.isSelected} onClick={this.onClick}>
                 <div class="Content">
                     <div class="Name">
                         {this.props.domain.name}
@@ -91,6 +109,9 @@ class Card {
                 </div>
             </div>
         )
+    }
+    get isSelected() {
+        return state.selected.domains.includes(this.props.domain)
     }
     get onClick() {
         return (event) => {

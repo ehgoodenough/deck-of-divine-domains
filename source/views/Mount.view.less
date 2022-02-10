@@ -35,20 +35,12 @@ body {
     font-family: Cambria, serif;
 }
 
-.Mount {
-    padding: 1em;
-}
-
 .Card {
     width: 8em;
     height: 12em;
     font-size: 1.2em;
     padding: 0.3em;
     display: inline-block;
-
-    &:not(:last-child) {
-        margin-right: 1em;
-    }
 
     border-width: 0.3em;
     border-color: @gold;
@@ -61,6 +53,16 @@ body {
     &.Empty {
         border-style: dashed;
         border-color: fadeout(@white, 80%);
+
+        .CallToAction {
+            height: 100%;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+
+            opacity: 0.5;
+        }
     }
 
     .Content {
@@ -87,10 +89,44 @@ body {
     }
 }
 
-.YourSelection {
-    margin-top: 2em;
-
+.DivineDomainScreen {
     .Prompt {
+        font-size: 1.5em;
         text-align: center;
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+    }
+
+    .Cards {
+        display: flex;
+        justify-content: center;
+    }
+
+    .YourSelectedCards {
+        .Divider {
+            width: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .Ampersand {
+                position: absolute;
+                font-size: 5rem;
+                text-shadow: 2px 2px 2px @black;
+            }
+        }
+    }
+
+    .YourDealtCards {
+        margin-top: 2rem;
+
+        .Card {
+            &:not(:last-child) {
+                margin-right: 1.5rem;
+            }
+            &[isSelected] {
+                opacity: 0;
+            }
+        }
     }
 }
