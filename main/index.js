@@ -1663,7 +1663,7 @@ module.exports = __webpack_require__.p + "23c472a0792ac1a20ca94c310a182523.ttf";
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "210bd9d6e0bd26b599158d791aad7435.png";
+module.exports = __webpack_require__.p + "01ee37b1aca4cbcc762ea966db28fb62.png";
 
 /***/ }),
 
