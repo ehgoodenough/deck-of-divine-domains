@@ -96,7 +96,7 @@ body {
                         -0.2em 0.2em 0.2em @faded-black;
         }
 
-        &[hasInteracted] {
+        &:not([interaction=none]) {
             .ReshufflePrompt {
                 opacity: 1;
             }
@@ -240,10 +240,8 @@ body {
                 // animation-timing-function: ease-out;
                 // animation-name: unselect-back-into-hand;
             }
-        }
-
-        &[hasJustDealt] {
-            .Card {
+            
+            &[interaction=dealt] {
                 opacity: 0;
                 animation-duration: 0.04s;
                 animation-fill-mode: forwards;

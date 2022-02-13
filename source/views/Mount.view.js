@@ -87,7 +87,7 @@ class DivineDomainScreen {
                         <Card domain={state.selected.domains[1]}/>
                     </div>
                 </section>,
-                <section class="YourDealtCards" hasJustDealt={this.hasJustDealt}>
+                <section class="YourDealtCards">
                     {state.dealt.domains.map((domain) => (
                         <Card domain={domain}/>
                     ))}
@@ -116,7 +116,7 @@ class EmptyCard {
 class Deck {
     render() {
         return (
-            <div class="Deck" onClick={this.onClick} hasInteracted={state.interaction != undefined}>
+            <div class="Deck" onClick={this.onClick} interaction={state.interaction && state.interaction.type || "none"}>
                 <div class="BottomCard"/>
                 <div class="AlmostTopCard"/>
                 <div class="TopCard">
@@ -131,6 +131,7 @@ class Deck {
         const DEALT_CARDS = 6
         state.interaction = {"type": "dealt"}
         state.dealt.domains = shuffle(DIVINE_DOMAINS).slice(0, 6)
+        console.log("sfx: shuffle")
         state.selected.domains = []
         rerender()
     }
@@ -142,7 +143,8 @@ class Card {
             return
         }
         return (
-            <div class="Faceup Card" isSelected={this.isSelected} onClick={this.onClick}>
+            <div class="Faceup Card" isSelected={this.isSelected} onClick={this.onClick}
+                interaction={state.interaction && state.interaction.type || "none"}>
                 <div class="Content">
                     <div class="Name">
                         {this.props.domain.name}
