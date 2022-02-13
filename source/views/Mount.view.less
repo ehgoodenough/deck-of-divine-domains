@@ -197,18 +197,19 @@ body {
             }
         }
 
-        .CardSlot {
+        .SelectSlot {
             width: 8em;
             height: 12em;
+            position: relative;
             display: inline-block;
 
             .Card {
                 position: absolute;
+
                 &[isSelected] {
                     opacity: 0;
-                    // animation-delay: 0.025s;
+                    animation-name: select;
                     animation-duration: 0.1s;
-                    animation-name: up-and-in;
                     animation-fill-mode: forwards;
                     animation-timing-function: ease-out;
                 }
@@ -226,33 +227,56 @@ body {
             &[isSelected] {
                 opacity: 0;
 
-                animation-duration: 0.05s;
-                animation-name: up-and-out;
+                animation-duration: 0.04s;
                 animation-fill-mode: forwards;
+                animation-timing-function: ease-out;
+                animation-name: select-out-from-hand;
             }
             &:not([isSelected]) {
                 opacity: 1;
 
-                animation-duration: 0.4s;
-                animation-name: un-up-and-out;
+                // animation-duration: 0.4s;
+                // animation-fill-mode: forwards;
+                // animation-timing-function: ease-out;
+                // animation-name: unselect-back-into-hand;
+            }
+        }
+
+        &[hasJustDealt] {
+            .Card {
+                opacity: 0;
+                animation-duration: 0.04s;
                 animation-fill-mode: forwards;
                 animation-timing-function: ease-out;
+                animation-name: deal-to-hand;
+
+                &:nth-child(1) {animation-delay: 0.2s * 0;}
+                &:nth-child(2) {animation-delay: 0.2s * 1;}
+                &:nth-child(3) {animation-delay: 0.2s * 2;}
+                &:nth-child(4) {animation-delay: 0.2s * 3;}
+                &:nth-child(5) {animation-delay: 0.2s * 4;}
+                &:nth-child(6) {animation-delay: 0.2s * 5;}
             }
         }
     }
 }
 
-@keyframes up-and-in {
-    0% {opacity: 0; transform: translateY(0.5em);}
+@keyframes select {
+    0% {opacity: 0; transform: translateY(0.5em)}
     100% {opacity: 1; transform: translateY(0em);}
 }
 
-@keyframes up-and-out {
+@keyframes deal-to-hand {
+    0% {opacity: 0; transform: translateY(-0.5em) rotate(16deg)}
+    100% {opacity: 1; transform: translateY(0em) rotate(0deg)}
+}
+
+@keyframes select-out-from-hand {
     0% {opacity: 1; transform: translateY(0em)}
     100% {opacity: 0; transform: translateY(-0.5em)}
 }
 
-@keyframes un-up-and-out {
+@keyframes unselect-back-into-hand {
     0% {opacity: 0; transform: translateY(-0.5em)}
     100% {opacity: 1; transform: translateY(0em)}
 }

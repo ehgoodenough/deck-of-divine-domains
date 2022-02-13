@@ -1,6 +1,6 @@
 import Preact from "preact"
 import shuffle from "array-shuffle"
-import render from "logic/Render.js"
+import rerender from "logic/Render.js"
 
 import "views/Mount.view.less"
 
@@ -32,7 +32,6 @@ let DIVINE_DOMAINS = [
 ]
 
 const state = {
-    "hasInteracted": false,
     "dealt": {
         "domains": []
     },
@@ -64,7 +63,7 @@ class DivineDomainScreen {
         )
     }
     get cards() {
-        if(state.hasInteracted != true) {
+        if(state.interaction == undefined) {
             return (
                 <section class="YourDeck">
                     <Deck/>
@@ -72,29 +71,33 @@ class DivineDomainScreen {
             )
         }
 
-        if(state.hasInteracted == true) {
+        if(state.interaction != undefined) {
             return [
                 <section class="YourSelectedCards">
                     <Deck/>
-                    <div class="CardSlot">
+                    <div class="SelectSlot">
                         <EmptyCard/>
                         <Card domain={state.selected.domains[0]}/>
                     </div>
                     <div class="Divider">
                         <div class="Ampersand">&</div>
                     </div>
-                    <div class="CardSlot">
+                    <div class="SelectSlot">
                         <EmptyCard/>
                         <Card domain={state.selected.domains[1]}/>
                     </div>
                 </section>,
-                <section class="YourDealtCards">
+                <section class="YourDealtCards" hasJustDealt={this.hasJustDealt}>
                     {state.dealt.domains.map((domain) => (
                         <Card domain={domain}/>
                     ))}
                 </section>
             ]
         }
+    }
+    get hasJustDealt() {
+        return state.interaction != undefined
+            && state.interaction.type == "dealt"
     }
 }
 
@@ -113,7 +116,7 @@ class EmptyCard {
 class Deck {
     render() {
         return (
-            <div class="Deck" onClick={this.onClick} hasInteracted={this.hasInteracted}>
+            <div class="Deck" onClick={this.onClick} hasInteracted={state.interaction != undefined}>
                 <div class="BottomCard"/>
                 <div class="AlmostTopCard"/>
                 <div class="TopCard">
@@ -124,14 +127,12 @@ class Deck {
             </div>
         )
     }
-    get hasInteracted() {
-        return state.hasInteracted
-    }
     onClick() {
-        state.hasInteracted = true
+        const DEALT_CARDS = 6
+        state.interaction = {"type": "dealt"}
         state.dealt.domains = shuffle(DIVINE_DOMAINS).slice(0, 6)
         state.selected.domains = []
-        render()
+        rerender()
     }
 }
 
@@ -158,10 +159,13 @@ class Card {
     }
     get onClick() {
         return (event) => {
+            state.interaction = {"type": "select"}
+
             if(state.selected.domains.includes(this.props.domain)) {
                 state.selected.domains[state.selected.domains.indexOf(this.props.domain)] = undefined
                 console.log("sfx: removed")
-                return render()
+                rerender()
+                return
             }
 
             if(state.selected.domains.length >= 2) {
@@ -176,7 +180,7 @@ class Card {
                 console.log("sfx: added")
             }
 
-            return render()
+            rerender()
         }
     }
 }
