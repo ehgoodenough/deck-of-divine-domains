@@ -73,7 +73,7 @@ class DivineDomainScreen {
         if(state.interaction == undefined) {
             return [
                 <section class="PromptSection">
-                    Your next adventuerer,
+                    Your next adventuerer
                     <br/>will worship a god of:
                 </section>,
                 <section class="YourDeck">
@@ -85,7 +85,7 @@ class DivineDomainScreen {
         if(state.interaction != undefined) {
             return [
                 <section class="PromptSection">
-                    Your next adventuerer,
+                    Your next adventuerer
                     <br/>will worship a god of:
                 </section>,
                 <section class="SelectedCardsSection">
