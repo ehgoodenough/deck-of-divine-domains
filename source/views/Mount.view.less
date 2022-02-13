@@ -108,18 +108,14 @@ body {
 .Card {
     width: 8em;
     height: 12em;
-    padding: 0.3em;
     position: relative;
     display: inline-block;
-
-    color: @white;
-    border-width: 0.3em;
-    border-radius: 0.25em;
-    background-color: @black;
 
     &.Empty {
         border-style: dashed;
         border-color: fadeout(@white, 80%);
+        border-width: 0.3em;
+        border-radius: 0.25em;
 
         .SelectPrompt {
             height: 100%;
@@ -132,32 +128,43 @@ body {
         }
     }
 
-    &.Faceup {
-        border-color: @gold;
-        border-style: solid;
-        box-shadow: 0.2em 0.2em 0.2em @black;
-    }
-
-    .Content {
-        border-width: 0.1em;
-        border-color: @gold;
-        border-style: solid;
-        border-radius: 0.1em;
-
+    .Content1 {
         height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        padding: 0.3em;
 
-        .Name {
-            font-size: 1.33em;
-            text-align: center;
-            font-family: tarot;
-        }
+        color: @white;
+        border-color: @gold;
+        border-style: solid;
+        border-width: 0.3em;
+        border-radius: 0.25em;
+        background-color: @black;
+        box-shadow: 0.2em 0.2em 0.2em @black;
 
-        .Symbol {
-            font-size: 4em;
-            text-align: center;
+        transition-duration: 0.15s;
+        transition-timing-function: ease-in;
+        transition-property: transform, box-shadow;
+
+        .Content2 {
+            border-width: 0.1em;
+            border-color: @gold;
+            border-style: solid;
+            border-radius: 0.1em;
+
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .Name {
+                font-size: 1.33em;
+                text-align: center;
+                font-family: tarot;
+            }
+
+            .Symbol {
+                font-size: 4em;
+                text-align: center;
+            }
         }
     }
 }
@@ -262,9 +269,11 @@ body {
             }
 
             &:hover {
-                transform: translateY(-1em) !important;
-                box-shadow: 0.2em 1.2em 0.6em @black;
-
+                .Content1 {
+                    transition-duration: 0.025s;
+                    transform: translateY(-1em) !important;
+                    box-shadow: 0.2em 1.2em 0.6em @black;
+                }
             }
         }
     }

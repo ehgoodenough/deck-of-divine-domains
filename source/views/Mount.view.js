@@ -145,12 +145,14 @@ class Card {
         return (
             <div class="Faceup Card" isSelected={this.isSelected} onClick={this.onClick}
                 interaction={state.interaction && state.interaction.type || "none"}>
-                <div class="Content">
-                    <div class="Name">
-                        {this.props.domain.name}
-                    </div>
-                    <div class="Symbol">
-                        {this.props.domain.symbol}
+                <div class="Content1">
+                    <div class="Content2">
+                        <div class="Name">
+                            {this.props.domain.name}
+                        </div>
+                        <div class="Symbol">
+                            {this.props.domain.symbol}
+                        </div>
                     </div>
                 </div>
             </div>
