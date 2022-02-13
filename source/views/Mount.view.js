@@ -19,7 +19,7 @@ let DIVINE_DOMAINS = [
     {"symbol": "🌑", "name": "Dark", "number": 12},
     {"symbol": "✨", "name": "Beauty", "number": 13},
     {"symbol": "💤", "name": "Dreams", "number": 14},
-    {"symbol": "�️", "name": "Fate", "number": 15},
+    {"symbol": "👁️", "name": "Fate", "number": 15},
     {"symbol": "🔮", "name": "Magic", "number": 16},
     {"symbol": "📚", "name": "Knowledge", "number": 17},
     {"symbol": "🤏", "name": "Trickery", "number": 18},
@@ -76,11 +76,17 @@ class DivineDomainScreen {
             return [
                 <section class="YourSelectedCards">
                     <Deck/>
-                    <Card domain={state.selected.domains[0]}/>
+                    <div class="CardSlot">
+                        <EmptyCard/>
+                        <Card domain={state.selected.domains[0]}/>
+                    </div>
                     <div class="Divider">
                         <div class="Ampersand">&</div>
                     </div>
-                    <Card domain={state.selected.domains[1]}/>
+                    <div class="CardSlot">
+                        <EmptyCard/>
+                        <Card domain={state.selected.domains[1]}/>
+                    </div>
                 </section>,
                 <section class="YourDealtCards">
                     {state.dealt.domains.map((domain) => (
@@ -89,6 +95,18 @@ class DivineDomainScreen {
                 </section>
             ]
         }
+    }
+}
+
+class EmptyCard {
+    render() {
+        return (
+            <div class="Empty Card">
+                <div class="SelectPrompt">
+                    Choose<br/>One
+                </div>
+            </div>
+        )
     }
 }
 
@@ -120,13 +138,7 @@ class Deck {
 class Card {
     render() {
         if(this.props.domain == undefined) {
-            return (
-                <div class="Empty Card">
-                    <div class="SelectPrompt">
-                        Choose<br/>One
-                    </div>
-                </div>
-            )
+            return
         }
         return (
             <div class="Faceup Card" isSelected={this.isSelected} onClick={this.onClick}>
