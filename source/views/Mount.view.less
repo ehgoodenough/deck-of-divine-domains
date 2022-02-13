@@ -30,6 +30,7 @@
 body {
     color: @white;
     background-color: #111;
+    background-color: #544;
 
     font-family: Roboto, Helvetica, sans-serif;
     font-family: Cambria, serif;
@@ -108,6 +109,7 @@ body {
     width: 8em;
     height: 12em;
     padding: 0.3em;
+    position: relative;
     display: inline-block;
 
     color: @white;
@@ -224,14 +226,7 @@ body {
             &:not(:last-child) {
                 margin-right: @margin;
             }
-            &[isSelected] {
-                opacity: 0;
 
-                animation-duration: 0.04s;
-                animation-fill-mode: forwards;
-                animation-timing-function: ease-out;
-                animation-name: select-out-from-hand;
-            }
             &:not([isSelected]) {
                 opacity: 1;
 
@@ -240,10 +235,20 @@ body {
                 // animation-timing-function: ease-out;
                 // animation-name: unselect-back-into-hand;
             }
-            
+
+            &[isSelected] {
+                opacity: 0;
+                transform: translateY(1em);
+
+                animation-duration: 0.05s;
+                animation-fill-mode: forwards;
+                animation-timing-function: ease-out;
+                animation-name: select-out-from-hand;
+            }
+
             &[interaction=dealt] {
                 opacity: 0;
-                animation-duration: 0.04s;
+                animation-duration: 0.05s;
                 animation-fill-mode: forwards;
                 animation-timing-function: ease-out;
                 animation-name: deal-to-hand;
@@ -255,13 +260,14 @@ body {
                 &:nth-child(5) {animation-delay: 0.2s * 4;}
                 &:nth-child(6) {animation-delay: 0.2s * 5;}
             }
+
+            &:hover {
+                transform: translateY(-1em) !important;
+                box-shadow: 0.2em 1.2em 0.6em @black;
+
+            }
         }
     }
-}
-
-@keyframes select {
-    0% {opacity: 0; transform: translateY(0.5em)}
-    100% {opacity: 1; transform: translateY(0em);}
 }
 
 @keyframes deal-to-hand {
@@ -269,12 +275,17 @@ body {
     100% {opacity: 1; transform: translateY(0em) rotate(0deg)}
 }
 
-@keyframes select-out-from-hand {
-    0% {opacity: 1; transform: translateY(0em)}
-    100% {opacity: 0; transform: translateY(-0.5em)}
+@keyframes select {
+    0% {opacity: 0; transform: translateY(0.5em)}
+    100% {opacity: 1; transform: translateY(0em);}
 }
 
-@keyframes unselect-back-into-hand {
-    0% {opacity: 0; transform: translateY(-0.5em)}
-    100% {opacity: 1; transform: translateY(0em)}
+@keyframes select-out-from-hand {
+    0% {opacity: 1; transform: translateY(-1em);}
+    100% {opacity: 0; transform: translateY(-1.5em);}
 }
+
+// @keyframes unselect-back-into-hand {
+//     0% {opacity: 0; transform: translateY(-0.5em)}
+//     100% {opacity: 1; transform: translateY(0em)}
+// }
