@@ -41,6 +41,13 @@ const state = {
     "interaction": undefined,
     getLastInteraction: function() {
         return state.interaction && state.interaction.type || "none"
+    },
+    shuffle: function() {
+        const DEALT_CARDS = 6
+        state.interaction = {"type": "dealt"}
+        state.dealt.domains = shuffle(DIVINE_DOMAINS).slice(0, 6)
+        console.log("sfx: shuffle")
+        state.selected.domains = []
     }
 }
 
@@ -58,27 +65,33 @@ class DivineDomainScreen {
     render() {
         return (
             <div class="DivineDomainScreen">
-                <div class="Prompt">
-                    For your next player character,
-                    <br/>you'll worship a god of:
-                </div>
-                {this.cards}
+                {this.sections}
             </div>
         )
     }
-    get cards() {
+    get sections() {
         if(state.interaction == undefined) {
-            return (
+            return [
+                <section class="PromptSection">
+                    Your next adventuerer,
+                    <br/>will worship a god of:
+                </section>,
                 <section class="YourDeck">
                     <Deck/>
                 </section>
-            )
+            ]
         }
 
         if(state.interaction != undefined) {
             return [
-                <section class="YourSelectedCards">
-                    <Deck/>
+                <section class="PromptSection">
+                    Your next adventuerer,
+                    <br/>will worship a god of:
+                </section>,
+                <section class="SelectedCardsSection">
+                    <section class="ReshuffleSection">
+                        <ReshuffleButton/>
+                    </section>
                     <section class="SelectedCards">
                         <div class="Slot">
                             <EmptyCard/>
@@ -92,9 +105,11 @@ class DivineDomainScreen {
                             <Card domain={state.selected.domains[1]}/>
                         </div>
                     </section>
-                    <CopyButton/>
+                    <section class="CopyButtonSection">
+                        <CopyButton/>
+                    </section>
                 </section>,
-                <section class="YourDealtCards">
+                <section class="DealtCardsSection">
                     {state.dealt.domains.map((domain) => (
                         <Card domain={domain}/>
                     ))}
@@ -105,6 +120,20 @@ class DivineDomainScreen {
     get hasJustDealt() {
         return state.interaction != undefined
             && state.interaction.type == "dealt"
+    }
+}
+
+class ReshuffleButton {
+    render() {
+        return (
+            <div class="ReshuffleButton" onClick={this.onClick}>
+                <div class="Icon"><i class="fa-solid fa-shuffle"></i></div>
+            </div>
+        )
+    }
+    onClick() {
+        state.shuffle()
+        rerender()
     }
 }
 
@@ -159,11 +188,7 @@ class Deck {
         )
     }
     onClick() {
-        const DEALT_CARDS = 6
-        state.interaction = {"type": "dealt"}
-        state.dealt.domains = shuffle(DIVINE_DOMAINS).slice(0, 6)
-        console.log("sfx: shuffle")
-        state.selected.domains = []
+        state.shuffle()
         rerender()
     }
 }
