@@ -37,6 +37,10 @@ const state = {
     },
     "selected": {
         "domains": []
+    },
+    "interaction": undefined,
+    getLastInteraction: function() {
+        return state.interaction && state.interaction.type || "none"
     }
 }
 
@@ -75,17 +79,20 @@ class DivineDomainScreen {
             return [
                 <section class="YourSelectedCards">
                     <Deck/>
-                    <div class="SelectSlot">
-                        <EmptyCard/>
-                        <Card domain={state.selected.domains[0]}/>
-                    </div>
-                    <div class="Divider">
-                        <div class="Ampersand">&</div>
-                    </div>
-                    <div class="SelectSlot">
-                        <EmptyCard/>
-                        <Card domain={state.selected.domains[1]}/>
-                    </div>
+                    <section class="SelectedCards">
+                        <div class="Slot">
+                            <EmptyCard/>
+                            <Card domain={state.selected.domains[0]}/>
+                        </div>
+                        <div class="Divider">
+                            <div class="Ampersand">&</div>
+                        </div>
+                        <div class="Slot">
+                            <EmptyCard/>
+                            <Card domain={state.selected.domains[1]}/>
+                        </div>
+                    </section>
+                    <CopyButton/>
                 </section>,
                 <section class="YourDealtCards">
                     {state.dealt.domains.map((domain) => (
@@ -98,6 +105,30 @@ class DivineDomainScreen {
     get hasJustDealt() {
         return state.interaction != undefined
             && state.interaction.type == "dealt"
+    }
+}
+
+class CopyButton {
+    render() {
+        return (
+            <div class="CopyButton" hasSelectedBoth={this.hasSelectedBoth}
+                interaction={state.getLastInteraction()} onClick={this.onClick}>
+                <div class="Icon"><i class="fa-solid fa-copy"></i></div>
+                <div class="Response">Copied!</div>
+            </div>
+        )
+    }
+    get onClick() {
+        return (event) => {
+            if(this.hasSelectedBoth == false) return
+            navigator.clipboard.writeText(state.selected.domains[0].symbol + "" + state.selected.domains[1].symbol)
+            state.interaction = {"type": "copy"}
+            rerender()
+        }
+    }
+    get hasSelectedBoth() {
+        return state.selected.domains[0] != undefined
+            && state.selected.domains[1] != undefined
     }
 }
 
@@ -116,7 +147,7 @@ class EmptyCard {
 class Deck {
     render() {
         return (
-            <div class="Deck" onClick={this.onClick} interaction={state.interaction && state.interaction.type || "none"}>
+            <div class="Deck" onClick={this.onClick} interaction={state.getLastInteraction()}>
                 <div class="BottomCard"/>
                 <div class="AlmostTopCard"/>
                 <div class="TopCard">
@@ -144,7 +175,7 @@ class Card {
         }
         return (
             <div class="Faceup Card" isSelected={this.isSelected} onClick={this.onClick}
-                interaction={state.interaction && state.interaction.type || "none"}>
+                interaction={state.getLastInteraction()}>
                 <div class="Content1">
                     <div class="Content2">
                         <div class="Name">
