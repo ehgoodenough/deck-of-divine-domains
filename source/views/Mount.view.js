@@ -72,10 +72,7 @@ class DivineDomainScreen {
     get sections() {
         if(state.interaction == undefined) {
             return [
-                <section class="PromptSection">
-                    Your next adventuerer
-                    <br/>will worship a god of:
-                </section>,
+                <PromptSection/>,
                 <section class="YourDeck">
                     <Deck/>
                 </section>
@@ -84,10 +81,7 @@ class DivineDomainScreen {
 
         if(state.interaction != undefined) {
             return [
-                <section class="PromptSection">
-                    Your next adventuerer
-                    <br/>will worship a god of:
-                </section>,
+                <PromptSection/>,
                 <section class="SelectedCardsSection">
                     <section class="ReshuffleSection">
                         <ReshuffleButton/>
@@ -120,6 +114,17 @@ class DivineDomainScreen {
     get hasJustDealt() {
         return state.interaction != undefined
             && state.interaction.type == "dealt"
+    }
+}
+
+class PromptSection {
+    render() {
+        return (
+            <section class="PromptSection">
+                Your next character
+                <br/>will worship a god of:
+            </section>
+        )
     }
 }
 
