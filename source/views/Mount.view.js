@@ -1,6 +1,7 @@
 import Preact from "preact"
 import shuffle from "array-shuffle"
 import rerender from "logic/Render.js"
+import numerals from "roman-numerals"
 
 import "views/Mount.view.less"
 
@@ -21,7 +22,7 @@ let DIVINE_DOMAINS = [
     {"symbol": "🔨", "name": "Forge", "number": 14},
     {"symbol": "🎲", "name": "Luck", "number": 15},
     {"symbol": "👁️", "name": "Fate", "number": 16},
-    {"symbol": "🤏", "name": "Trickery", "number": 17},
+    {"symbol": "🖐️", "name": "Trickery", "number": 17},
     {"symbol": "⚖️", "name": "Justice", "number": 18},
     {"symbol": "📚", "name": "Knowledge", "number": 19},
     {"symbol": "👑", "name": "Wealth", "number": 20},
@@ -214,6 +215,9 @@ class Card {
                         </div>
                         <div class="Symbol">
                             {this.props.domain.symbol}
+                        </div>
+                        <div class="Number">
+                            {numerals.toRoman(this.props.domain.number)}
                         </div>
                     </div>
                 </div>
