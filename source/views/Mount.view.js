@@ -5,30 +5,30 @@ import rerender from "logic/Render.js"
 import "views/Mount.view.less"
 
 let DIVINE_DOMAINS = [
-    {"symbol": "⚔️", "name": "War", "number": 1},
-    {"symbol": "❤️", "name": "Love", "number": 2},
-    {"symbol": "💀", "name": "Death", "number": 3},
-    {"symbol": "🔨", "name": "Forge", "number": 4},
-    {"symbol": "⛈️", "name": "Storms", "number": 5},
+    {"symbol": "❤️", "name": "Love", "number": 1},
+    {"symbol": "⚔️", "name": "War", "number": 2},
+    {"symbol": "😊", "name": "Life", "number": 3},
+    {"symbol": "💀", "name": "Death", "number": 4},
+    {"symbol": "🔥", "name": "Fire", "number": 5},
     {"symbol": "🌊", "name": "Water", "number": 6},
-    {"symbol": "🔥", "name": "Fire", "number": 7},
-    {"symbol": "🌿", "name": "Flora", "number": 8},
-    {"symbol": "⛰️", "name": "Earth", "number": 9},
-    {"symbol": "🌌", "name": "Sky", "number": 10},
+    {"symbol": "⛰️", "name": "Earth", "number": 7},
+    {"symbol": "⛈️", "name": "Storms", "number": 8},
+    {"symbol": "🐺", "name": "Beasts", "number": 9},
+    {"symbol": "🌿", "name": "Plants", "number": 10},
     {"symbol": "☀️", "name": "Light", "number": 11},
     {"symbol": "🌑", "name": "Dark", "number": 12},
-    {"symbol": "✨", "name": "Beauty", "number": 13},
-    {"symbol": "💤", "name": "Dreams", "number": 14},
-    {"symbol": "👁️", "name": "Fate", "number": 15},
-    {"symbol": "🔮", "name": "Magic", "number": 16},
-    {"symbol": "📚", "name": "Knowledge", "number": 17},
-    {"symbol": "🤏", "name": "Trickery", "number": 18},
-    {"symbol": "😊", "name": "Joy", "number": 19},
-    {"symbol": "⚖️", "name": "Justice", "number": 20},
-    {"symbol": "🎭", "name": "Art", "number": 21},
-    {"symbol": "⏳", "name": "Time", "number": 22},
-    {"symbol": "🎲", "name": "Luck", "number": 23},
-    {"symbol": "👑", "name": "Wealth", "number": 24},
+    {"symbol": "🎭", "name": "Art", "number": 13},
+    {"symbol": "🔨", "name": "Forge", "number": 14},
+    {"symbol": "🎲", "name": "Luck", "number": 15},
+    {"symbol": "👁️", "name": "Fate", "number": 16},
+    {"symbol": "🤏", "name": "Trickery", "number": 17},
+    {"symbol": "⚖️", "name": "Justice", "number": 18},
+    {"symbol": "📚", "name": "Knowledge", "number": 19},
+    {"symbol": "👑", "name": "Wealth", "number": 20},
+    {"symbol": "⏳", "name": "Time", "number": 21},
+    {"symbol": "🔮", "name": "Magic", "number": 22},
+    {"symbol": "😃", "name": "Joy", "number": 23},
+    {"symbol": "😩", "name": "Tragedy", "number": 24},
 ]
 
 const state = {
@@ -43,7 +43,7 @@ const state = {
         return state.interaction && state.interaction.type || "none"
     },
     shuffle: function() {
-        const DEALT_CARDS = 6
+        const DEALT_CARDS = 5
         state.interaction = {"type": "dealt"}
         state.dealt.domains = shuffle(DIVINE_DOMAINS).slice(0, 6)
         console.log("sfx: shuffle")
@@ -55,6 +55,7 @@ export default class Mount {
     render() {
         return (
             <div className="Mount">
+                <title>Deck of Divine Domains</title>
                 <DivineDomainScreen/>
             </div>
         )
