@@ -40,13 +40,12 @@ const state = {
         "domains": []
     },
     "interaction": undefined,
-    getLastInteraction: function() {
+    "getLastInteraction": function() {
         return state.interaction && state.interaction.type || "none"
     },
-    shuffle: function() {
-        const DEALT_CARDS = 5
+    "shuffle": function() {
         state.interaction = {"type": "dealt"}
-        state.dealt.domains = shuffle(DIVINE_DOMAINS).slice(0, 6)
+        state.dealt.domains = shuffle(DIVINE_DOMAINS).slice(0, 5)
         console.log("sfx: shuffle")
         state.selected.domains = []
     }
