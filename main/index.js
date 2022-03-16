@@ -144,7 +144,7 @@ var ___CSS_LOADER_URL___0___ = urlEscape(__webpack_require__(/*! ../fonts/tarot.
 var ___CSS_LOADER_URL___1___ = urlEscape(__webpack_require__(/*! ../images/badcardback.png */ "./source/images/badcardback.png"));
 
 // Module
-exports.push([module.i, "* {\n  margin: 0px;\n  padding: 0px;\n  cursor: default;\n  box-sizing: border-box;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  -o-user-select: none;\n  user-select: none;\n}\n@font-face {\n  font-family: tarot;\n  src: url(" + ___CSS_LOADER_URL___0___ + ") format(\"truetype\");\n}\nbody {\n  color: #f2f8fb;\n  background-color: #4e4c55;\n  font-family: Roboto, Helvetica, sans-serif;\n  font-family: Cambria, serif;\n}\n.ReshuffleButton {\n  font-size: 3em;\n  color: #f2f8fb;\n  transition-property: color;\n  transition-duration: 0.2s;\n}\n.ReshuffleButton:hover {\n  color: #baa867;\n  transition-duration: 0.1s;\n}\n.CopyButton {\n  position: relative;\n  opacity: 0;\n  transition-duration: 0.5s;\n  transition-property: opacity;\n}\n.CopyButton:hover .Icon {\n  color: #baa867;\n  transition-duration: 0.1s;\n}\n.CopyButton:hover .Response {\n  opacity: 1;\n  transition-duration: 0.1s;\n}\n.CopyButton .Icon {\n  font-size: 3em;\n  transition-property: color;\n  transition-duration: 0.2s;\n}\n.CopyButton .Response {\n  top: -1em;\n  display: none;\n  position: absolute;\n  color: #baa867;\n  opacity: 0;\n  transition-property: opacity;\n  transition-duration: 0.2s;\n}\n.CopyButton[interaction=copy] .Response {\n  top: -1.25em;\n  display: block;\n  animation-duration: 0.1s;\n  animation-fill-mode: forwards;\n  animation-name: copy-to-clipboard;\n}\n.CopyButton[hasSelectedBoth] {\n  opacity: 1;\n  transition-delay: 0.5s;\n  transition-duration: 2s;\n}\n.Deck {\n  width: 8em;\n  height: 12em;\n  position: relative;\n}\n.Deck .BottomCard {\n  width: 8em;\n  height: 12em;\n  border-radius: 0.25em;\n  background-color: #928142;\n}\n.Deck .TopCard,\n.Deck .AlmostTopCard {\n  width: 8em;\n  height: 12em;\n  border-radius: 0.25em;\n  background-size: cover;\n  background-color: #baa867;\n  background-position: center;\n  background-image: url(" + ___CSS_LOADER_URL___1___ + ");\n  box-shadow: 0em 0em 0em transparent;\n  top: -1em;\n  position: absolute;\n  transform: rotate(0deg);\n  transform-origin: bottom center;\n  transition-duration: 0.4s;\n  transition-property: top, transform, box-shadow;\n}\n.Deck .ReshufflePrompt {\n  height: 100%;\n  display: flex;\n  text-align: center;\n  align-items: center;\n  justify-content: center;\n  text-shadow: 0.1em 0.1em 0.1em #35343a;\n  opacity: 0;\n  transition-delay: 0.2s;\n  transition-duration: 1s;\n  transition-property: opacity;\n}\n.Deck:hover .TopCard {\n  transition-duration: 0.2s;\n  top: -1.5em;\n  transform: rotate(2deg);\n  box-shadow: 0.2em 0.2em 0.2em rgba(53, 52, 58, 0.2), -0.2em 0.2em 0.2em rgba(53, 52, 58, 0.2);\n}\n.Deck:hover:not([interaction=none]) .ReshufflePrompt {\n  opacity: 1;\n}\n.Card {\n  width: 8em;\n  height: 12em;\n  position: relative;\n  display: inline-block;\n}\n.Card.Empty {\n  border-style: dashed;\n  border-color: rgba(242, 248, 251, 0.2);\n  border-width: 0.3em;\n  border-radius: 0.25em;\n}\n.Card.Empty .SelectPrompt {\n  height: 100%;\n  display: flex;\n  text-align: center;\n  align-items: center;\n  justify-content: center;\n  opacity: 0.5;\n}\n.Card .Content1 {\n  height: 100%;\n  padding: 0.3em;\n  color: #f2f8fb;\n  border-color: #baa867;\n  border-style: solid;\n  border-width: 0.3em;\n  border-radius: 0.25em;\n  background-color: #35343a;\n  box-shadow: 0.2em 0.2em 0.2em #35343a;\n  transition-duration: 0.15s;\n  transition-timing-function: ease-in;\n  transition-property: transform, box-shadow;\n}\n.Card .Content1 .Content2 {\n  border-width: 0.1em;\n  border-color: #baa867;\n  border-style: solid;\n  border-radius: 0.1em;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.Card .Content1 .Content2 .Name {\n  font-size: 1.33em;\n  text-align: center;\n}\n.Card .Content1 .Content2 .Symbol {\n  font-size: 4em;\n  text-align: center;\n}\n.DivineDomainScreen {\n  font-size: 1.2em;\n}\n.DivineDomainScreen section {\n  display: flex;\n  justify-content: center;\n  position: relative;\n}\n.DivineDomainScreen .PromptSection {\n  font-size: 1.5em;\n  text-align: center;\n  margin-bottom: 2rem;\n  margin-top: 2rem;\n}\n.DivineDomainScreen .SelectedCardsSection .SelectedCards .Divider {\n  z-index: 100;\n  position: relative;\n  width: 1.5rem;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.DivineDomainScreen .SelectedCardsSection .SelectedCards .Divider .Ampersand {\n  position: absolute;\n  font-size: 5rem;\n  text-shadow: 2px 2px 2px #35343a;\n}\n.DivineDomainScreen .SelectedCardsSection .SelectedCards .Slot {\n  width: 8em;\n  height: 12em;\n  position: relative;\n  display: inline-block;\n}\n.DivineDomainScreen .SelectedCardsSection .SelectedCards .Slot .Card {\n  position: absolute;\n}\n.DivineDomainScreen .SelectedCardsSection .SelectedCards .Slot .Card[isSelected] {\n  opacity: 0;\n  animation-name: select;\n  animation-duration: 0.1s;\n  animation-fill-mode: forwards;\n  animation-timing-function: ease-out;\n}\n.DivineDomainScreen .SelectedCardsSection .ReshuffleSection,\n.DivineDomainScreen .SelectedCardsSection .CopyButtonSection {\n  margin: auto 4.125rem;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.DivineDomainScreen .DealtCardsSection {\n  margin-top: 2rem;\n}\n.DivineDomainScreen .DealtCardsSection .Card:not(:last-child) {\n  margin-right: 1.5rem;\n}\n.DivineDomainScreen .DealtCardsSection .Card:not([isSelected]) {\n  opacity: 1;\n}\n.DivineDomainScreen .DealtCardsSection .Card[isSelected] {\n  opacity: 0;\n  transform: translateY(1em);\n  animation-duration: 0.05s;\n  animation-fill-mode: forwards;\n  animation-timing-function: ease-out;\n  animation-name: select-out-from-hand;\n}\n.DivineDomainScreen .DealtCardsSection .Card[interaction=dealt] {\n  opacity: 0;\n  animation-duration: 0.05s;\n  animation-fill-mode: forwards;\n  animation-timing-function: ease-out;\n  animation-name: deal-to-hand;\n}\n.DivineDomainScreen .DealtCardsSection .Card[interaction=dealt]:nth-child(1) {\n  animation-delay: 0s;\n}\n.DivineDomainScreen .DealtCardsSection .Card[interaction=dealt]:nth-child(2) {\n  animation-delay: 0.2s;\n}\n.DivineDomainScreen .DealtCardsSection .Card[interaction=dealt]:nth-child(3) {\n  animation-delay: 0.4s;\n}\n.DivineDomainScreen .DealtCardsSection .Card[interaction=dealt]:nth-child(4) {\n  animation-delay: 0.6s;\n}\n.DivineDomainScreen .DealtCardsSection .Card[interaction=dealt]:nth-child(5) {\n  animation-delay: 0.8s;\n}\n.DivineDomainScreen .DealtCardsSection .Card[interaction=dealt]:nth-child(6) {\n  animation-delay: 1s;\n}\n.DivineDomainScreen .DealtCardsSection .Card:hover .Content1 {\n  transition-duration: 0.025s;\n  transform: translateY(-1em) !important;\n  box-shadow: 0.2em 1.2em 0.6em #35343a;\n}\n@keyframes deal-to-hand {\n  0% {\n    opacity: 0;\n    transform: translateY(-0.5em) rotate(16deg);\n  }\n  100% {\n    opacity: 1;\n    transform: translateY(0em) rotate(0deg);\n  }\n}\n@keyframes select {\n  0% {\n    opacity: 0;\n    transform: translateY(0.5em);\n  }\n  100% {\n    opacity: 1;\n    transform: translateY(0em);\n  }\n}\n@keyframes select-out-from-hand {\n  0% {\n    opacity: 1;\n    transform: translateY(-1em);\n  }\n  100% {\n    opacity: 0;\n    transform: translateY(-1.5em);\n  }\n}\n@keyframes copy-to-clipboard {\n  0% {\n    display: block;\n    top: 1em;\n  }\n  100% {\n    top: -1.25em;\n  }\n}\n", ""]);
+exports.push([module.i, "* {\n  margin: 0px;\n  padding: 0px;\n  cursor: default;\n  box-sizing: border-box;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  -o-user-select: none;\n  user-select: none;\n}\n@font-face {\n  font-family: tarot;\n  src: url(" + ___CSS_LOADER_URL___0___ + ") format(\"truetype\");\n}\n:root {\n  font-size: 16px;\n}\n@media (max-width: 1050px) {\n  :root {\n    font-size: 1.53vw;\n  }\n}\nbody {\n  color: #f2f8fb;\n  background-color: #4e4c55;\n  font-family: Roboto, Helvetica, sans-serif;\n  font-family: Cambria, serif;\n}\n.ReshuffleButton {\n  font-size: 3em;\n  color: #f2f8fb;\n  transition-property: color;\n  transition-duration: 0.2s;\n}\n.ReshuffleButton:hover {\n  color: #baa867;\n  transition-duration: 0.1s;\n}\n.CopyButton {\n  position: relative;\n  opacity: 0;\n  transition-duration: 0.5s;\n  transition-property: opacity;\n}\n.CopyButton:hover .Icon {\n  color: #baa867;\n  transition-duration: 0.1s;\n}\n.CopyButton:hover .Response {\n  opacity: 1;\n  transition-duration: 0.1s;\n}\n.CopyButton .Icon {\n  font-size: 3em;\n  transition-property: color;\n  transition-duration: 0.2s;\n}\n.CopyButton .Response {\n  top: -1em;\n  display: none;\n  position: absolute;\n  color: #baa867;\n  opacity: 0;\n  transition-property: opacity;\n  transition-duration: 0.2s;\n}\n.CopyButton[interaction=copy] .Response {\n  top: -1.25em;\n  display: block;\n  animation-duration: 0.1s;\n  animation-fill-mode: forwards;\n  animation-name: copy-to-clipboard;\n}\n.CopyButton[hasSelectedBoth] {\n  opacity: 1;\n  transition-delay: 0.5s;\n  transition-duration: 2s;\n}\n.Deck {\n  width: 8em;\n  height: 12em;\n  position: relative;\n}\n.Deck .BottomCard {\n  width: 8em;\n  height: 12em;\n  border-radius: 0.25em;\n  background-color: #928142;\n}\n.Deck .TopCard,\n.Deck .AlmostTopCard {\n  width: 8em;\n  height: 12em;\n  border-radius: 0.25em;\n  background-size: cover;\n  background-color: #baa867;\n  background-position: center;\n  background-image: url(" + ___CSS_LOADER_URL___1___ + ");\n  box-shadow: 0em 0em 0em transparent;\n  top: -1em;\n  position: absolute;\n  transform: rotate(0deg);\n  transform-origin: bottom center;\n  transition-duration: 0.4s;\n  transition-property: top, transform, box-shadow;\n}\n.Deck .ReshufflePrompt {\n  height: 100%;\n  display: flex;\n  text-align: center;\n  align-items: center;\n  justify-content: center;\n  text-shadow: 0.1em 0.1em 0.1em #35343a;\n  opacity: 0;\n  transition-delay: 0.2s;\n  transition-duration: 1s;\n  transition-property: opacity;\n}\n.Deck:hover .TopCard {\n  transition-duration: 0.2s;\n  top: -1.5em;\n  transform: rotate(2deg);\n  box-shadow: 0.2em 0.2em 0.2em rgba(53, 52, 58, 0.2), -0.2em 0.2em 0.2em rgba(53, 52, 58, 0.2);\n}\n.Deck:hover:not([interaction=none]) .ReshufflePrompt {\n  opacity: 1;\n}\n.Card {\n  width: 8em;\n  height: 12em;\n  position: relative;\n  display: inline-block;\n}\n.Card.Empty {\n  border-style: dashed;\n  border-color: rgba(242, 248, 251, 0.2);\n  border-width: 0.3em;\n  border-radius: 0.25em;\n}\n.Card.Empty .SelectPrompt {\n  height: 100%;\n  display: flex;\n  text-align: center;\n  align-items: center;\n  justify-content: center;\n  opacity: 0.5;\n}\n.Card .Content1 {\n  height: 100%;\n  padding: 0.3em;\n  color: #f2f8fb;\n  border-color: #baa867;\n  border-style: solid;\n  border-width: 0.3em;\n  border-radius: 0.25em;\n  background-color: #35343a;\n  box-shadow: 0.2em 0.2em 0.2em #35343a;\n  transition-duration: 0.15s;\n  transition-timing-function: ease-in;\n  transition-property: transform, box-shadow;\n}\n.Card .Content1 .Content2 {\n  border-width: 0.1em;\n  border-color: #baa867;\n  border-style: solid;\n  border-radius: 0.1em;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.Card .Content1 .Content2 .Name,\n.Card .Content1 .Content2 .Number {\n  font-size: 1.33em;\n  text-align: center;\n}\n.Card .Content1 .Content2 .Symbol {\n  font-size: 4em;\n  text-align: center;\n}\n.DivineDomainScreen {\n  font-size: 1.2em;\n}\n.DivineDomainScreen section {\n  display: flex;\n  justify-content: center;\n  position: relative;\n}\n.DivineDomainScreen .PromptSection {\n  font-size: 1.5em;\n  text-align: center;\n  margin-bottom: 2rem;\n  margin-top: 2rem;\n}\n.DivineDomainScreen .SelectedCardsSection .SelectedCards .Divider {\n  z-index: 100;\n  position: relative;\n  width: 1.5rem;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.DivineDomainScreen .SelectedCardsSection .SelectedCards .Divider .Ampersand {\n  position: absolute;\n  font-size: 5rem;\n  text-shadow: 2px 2px 2px #35343a;\n}\n.DivineDomainScreen .SelectedCardsSection .SelectedCards .Slot {\n  width: 8em;\n  height: 12em;\n  position: relative;\n  display: inline-block;\n}\n.DivineDomainScreen .SelectedCardsSection .SelectedCards .Slot .Card {\n  position: absolute;\n}\n.DivineDomainScreen .SelectedCardsSection .SelectedCards .Slot .Card[isSelected] {\n  opacity: 0;\n  animation-name: select;\n  animation-duration: 0.1s;\n  animation-fill-mode: forwards;\n  animation-timing-function: ease-out;\n}\n.DivineDomainScreen .SelectedCardsSection .ReshuffleSection,\n.DivineDomainScreen .SelectedCardsSection .CopyButtonSection {\n  margin: auto 4.125rem;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.DivineDomainScreen .DealtCardsSection {\n  margin-top: 2rem;\n}\n.DivineDomainScreen .DealtCardsSection .Card:not(:last-child) {\n  margin-right: 1.5rem;\n}\n.DivineDomainScreen .DealtCardsSection .Card:not([isSelected]) {\n  opacity: 1;\n}\n.DivineDomainScreen .DealtCardsSection .Card[isSelected] {\n  opacity: 0;\n  transform: translateY(1em);\n  animation-duration: 0.05s;\n  animation-fill-mode: forwards;\n  animation-timing-function: ease-out;\n  animation-name: select-out-from-hand;\n}\n.DivineDomainScreen .DealtCardsSection .Card[interaction=dealt] {\n  opacity: 0;\n  animation-duration: 0.05s;\n  animation-fill-mode: forwards;\n  animation-timing-function: ease-out;\n  animation-name: deal-to-hand;\n}\n.DivineDomainScreen .DealtCardsSection .Card[interaction=dealt]:nth-child(1) {\n  animation-delay: 0s;\n}\n.DivineDomainScreen .DealtCardsSection .Card[interaction=dealt]:nth-child(2) {\n  animation-delay: 0.2s;\n}\n.DivineDomainScreen .DealtCardsSection .Card[interaction=dealt]:nth-child(3) {\n  animation-delay: 0.4s;\n}\n.DivineDomainScreen .DealtCardsSection .Card[interaction=dealt]:nth-child(4) {\n  animation-delay: 0.6s;\n}\n.DivineDomainScreen .DealtCardsSection .Card[interaction=dealt]:nth-child(5) {\n  animation-delay: 0.8s;\n}\n.DivineDomainScreen .DealtCardsSection .Card[interaction=dealt]:nth-child(6) {\n  animation-delay: 1s;\n}\n.DivineDomainScreen .DealtCardsSection .Card:hover .Content1 {\n  transition-duration: 0.025s;\n  transform: translateY(-1em) !important;\n  box-shadow: 0.2em 1.2em 0.6em #35343a;\n}\n@keyframes deal-to-hand {\n  0% {\n    opacity: 0;\n    transform: translateY(-0.5em) rotate(16deg);\n  }\n  100% {\n    opacity: 1;\n    transform: translateY(0em) rotate(0deg);\n  }\n}\n@keyframes select {\n  0% {\n    opacity: 0;\n    transform: translateY(0.5em);\n  }\n  100% {\n    opacity: 1;\n    transform: translateY(0em);\n  }\n}\n@keyframes select-out-from-hand {\n  0% {\n    opacity: 1;\n    transform: translateY(-1em);\n  }\n  100% {\n    opacity: 0;\n    transform: translateY(-1.5em);\n  }\n}\n@keyframes copy-to-clipboard {\n  0% {\n    display: block;\n    top: 1em;\n  }\n  100% {\n    top: -1.25em;\n  }\n}\n", ""]);
 
 
 
@@ -1073,6 +1073,158 @@ var preact = {
 
 /***/ }),
 
+/***/ "./node_modules/roman-numerals/index.js":
+/*!**********************************************!*\
+  !*** ./node_modules/roman-numerals/index.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+(function () {
+  module.exports = {
+    toArabic: __webpack_require__(/*! ./lib/toArabic.js */ "./node_modules/roman-numerals/lib/toArabic.js"),
+    toRoman:__webpack_require__(/*! ./lib/toRoman.js */ "./node_modules/roman-numerals/lib/toRoman.js")
+  };
+})();
+
+
+/***/ }),
+
+/***/ "./node_modules/roman-numerals/lib/toArabic.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/roman-numerals/lib/toArabic.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function () {
+  var forEach = Array.prototype.forEach;
+
+
+  /**
+   * Converts a roman number to its arabic equivalent.
+   *
+   * Will throw TypeError on non-string inputs.
+   *
+   * @param {String} roman
+   * @return {Number}
+   */
+  function toArabic (roman) {
+    if (('string' !== typeof roman) && (!(roman instanceof String))) throw new TypeError('toArabic expects a string');
+
+    // Zero is/was a special case. I'll go with Dionysius Exiguus on this one as
+    // seen on http://en.wikipedia.org/wiki/Roman_numerals#Zero
+    if (/^nulla$/i.test(roman) || !roman.length) return 0;
+
+    // Ultra magical regexp to validate roman numbers!
+    roman = roman.toUpperCase().match(/^(M{0,3})(CM|DC{0,3}|CD|C{0,3})(XC|LX{0,3}|XL|X{0,3})(IX|VI{0,3}|IV|I{0,3})$/);
+    if (!roman) throw new Error('toArabic expects a valid roman number');
+    var arabic = 0;
+
+    // Crunching the thousands...
+    arabic += roman[1].length * 1000;
+
+    // Crunching the hundreds...
+    if (roman[2] === 'CM') arabic += 900;
+    else if (roman[2] === 'CD') arabic += 400;
+    else arabic += roman[2].length * 100 + (roman[2][0] === 'D' ? 400 : 0);
+
+
+    // Crunching the tenths
+    if (roman[3] === 'XC') arabic += 90;
+    else if (roman[3] === 'XL') arabic += 40;
+    else arabic += roman[3].length * 10 + (roman[3][0] === 'L' ? 40 : 0);
+
+    // Crunching the...you see where I'm going, right?
+    if (roman[4] === 'IX') arabic += 9;
+    else if (roman[4] === 'IV') arabic += 4;
+    else arabic += roman[4].length * 1 + (roman[4][0] === 'V' ? 4 : 0);
+    return arabic;
+  };
+
+
+  module.exports = toArabic;
+
+})();
+
+
+/***/ }),
+
+/***/ "./node_modules/roman-numerals/lib/toRoman.js":
+/*!****************************************************!*\
+  !*** ./node_modules/roman-numerals/lib/toRoman.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function () {
+  /**
+   * Generate the roman number for the current power of tenth
+   *
+   * @param {Number} num
+   * @param {String} one
+   * @param {String} five
+   * @param {String} ten
+   * @return {String}
+   */
+  function upToTen (num, one, five, ten) {
+    var value = '';
+    switch (num) {
+      case 0: return value;
+      case 9: return one + ten;
+      case 4: return one + five;
+    }
+    if (num >= 5) value = five, num -= 5;
+    while (num-- > 0) value += one;
+    return value;
+  }
+
+
+  /**
+   * Converts an arabic number from 0 to 3999 to its roman equivalent.
+   *
+   * Will throw TypeError on non-number inputs (stringed numbers are accepted)
+   * or NaN and Error on number under 0 or over 3999.
+   *
+   * @param {Number/String} arabic
+   * @return {String}
+   */
+  function toRoman (arabic) {
+    // Checking input first with type comparisons, convert Number() instances to
+    // a literal, etc...
+    if (arabic instanceof Number) arabic = parseInt(arabic, 10);
+    if ('string' === typeof arabic || arabic instanceof String) {
+      arabic = parseInt(arabic, 10);
+      if (isNaN(arabic)) throw new TypeError('toArabic expects a number');
+    }
+    if ('number' !== typeof arabic) throw new TypeError('toArabic expects a number');
+
+    // Rounding up "bad" numbers: NaN, negative numbers, numbers over 3999,...
+    if (isNaN(arabic)) throw new TypeError('toArabic expects a real number');
+    if (arabic < 0) throw new Error('toArabic cannot express negative numbers');
+    if (arabic > 3999) throw new Error('toArabic cannot express numbers over 3999');
+
+    // Zero is/was a special case. I'll go with Dionysius Exiguus on this one as
+    // seen on http://en.wikipedia.org/wiki/Roman_numerals#Zero
+    if (arabic === 0) return 'nulla';
+    var roman = '';
+
+    // Chomping away by the power of tenths
+    roman += upToTen(Math.floor(arabic / 1000), 'M', '', ''), arabic %= 1000;
+    roman += upToTen(Math.floor(arabic / 100), 'C', 'D', 'M'), arabic %= 100;
+    roman += upToTen(Math.floor(arabic / 10), 'X', 'L', 'C'), arabic %= 10;
+    roman += upToTen(arabic, 'I', 'V', 'X');
+    return roman;
+  };
+
+
+  module.exports = toRoman;
+
+})();
+
+
+/***/ }),
+
 /***/ "./node_modules/statgrab/do.js":
 /*!*************************************!*\
   !*** ./node_modules/statgrab/do.js ***!
@@ -1718,8 +1870,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.mjs");
 /* harmony import */ var array_shuffle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! array-shuffle */ "./node_modules/array-shuffle/index.js");
 /* harmony import */ var logic_Render_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! logic/Render.js */ "./source/logic/Render.js");
-/* harmony import */ var views_Mount_view_less__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! views/Mount.view.less */ "./source/views/Mount.view.less");
-/* harmony import */ var views_Mount_view_less__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(views_Mount_view_less__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var roman_numerals__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! roman-numerals */ "./node_modules/roman-numerals/index.js");
+/* harmony import */ var roman_numerals__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(roman_numerals__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var views_Mount_view_less__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! views/Mount.view.less */ "./source/views/Mount.view.less");
+/* harmony import */ var views_Mount_view_less__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(views_Mount_view_less__WEBPACK_IMPORTED_MODULE_4__);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1730,45 +1884,46 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
 
+
 var DIVINE_DOMAINS = [{
-  "symbol": "⚔️",
-  "name": "War",
-  "number": 1
-}, {
   "symbol": "❤️",
   "name": "Love",
+  "number": 1
+}, {
+  "symbol": "⚔️",
+  "name": "War",
   "number": 2
+}, {
+  "symbol": "😊",
+  "name": "Life",
+  "number": 3
 }, {
   "symbol": "💀",
   "name": "Death",
-  "number": 3
-}, {
-  "symbol": "🔨",
-  "name": "Forge",
   "number": 4
 }, {
-  "symbol": "⛈️",
-  "name": "Storms",
+  "symbol": "🔥",
+  "name": "Fire",
   "number": 5
 }, {
   "symbol": "🌊",
   "name": "Water",
   "number": 6
 }, {
-  "symbol": "🔥",
-  "name": "Fire",
-  "number": 7
-}, {
-  "symbol": "🌿",
-  "name": "Flora",
-  "number": 8
-}, {
   "symbol": "⛰️",
   "name": "Earth",
+  "number": 7
+}, {
+  "symbol": "⛈️",
+  "name": "Storms",
+  "number": 8
+}, {
+  "symbol": "🐺",
+  "name": "Beasts",
   "number": 9
 }, {
-  "symbol": "🌌",
-  "name": "Sky",
+  "symbol": "🌿",
+  "name": "Plants",
   "number": 10
 }, {
   "symbol": "☀️",
@@ -1779,52 +1934,52 @@ var DIVINE_DOMAINS = [{
   "name": "Dark",
   "number": 12
 }, {
-  "symbol": "✨",
-  "name": "Beauty",
-  "number": 13
-}, {
-  "symbol": "💤",
-  "name": "Dreams",
-  "number": 14
-}, {
-  "symbol": "👁️",
-  "name": "Fate",
-  "number": 15
-}, {
-  "symbol": "🔮",
-  "name": "Magic",
-  "number": 16
-}, {
-  "symbol": "📚",
-  "name": "Knowledge",
-  "number": 17
-}, {
-  "symbol": "🤏",
-  "name": "Trickery",
-  "number": 18
-}, {
-  "symbol": "😊",
-  "name": "Joy",
-  "number": 19
-}, {
-  "symbol": "⚖️",
-  "name": "Justice",
-  "number": 20
-}, {
   "symbol": "🎭",
   "name": "Art",
-  "number": 21
+  "number": 13
 }, {
-  "symbol": "⏳",
-  "name": "Time",
-  "number": 22
+  "symbol": "🔨",
+  "name": "Forge",
+  "number": 14
 }, {
   "symbol": "🎲",
   "name": "Luck",
-  "number": 23
+  "number": 15
+}, {
+  "symbol": "👁️",
+  "name": "Fate",
+  "number": 16
+}, {
+  "symbol": "🖐️",
+  "name": "Trickery",
+  "number": 17
+}, {
+  "symbol": "⚖️",
+  "name": "Justice",
+  "number": 18
+}, {
+  "symbol": "📚",
+  "name": "Knowledge",
+  "number": 19
 }, {
   "symbol": "👑",
   "name": "Wealth",
+  "number": 20
+}, {
+  "symbol": "⏳",
+  "name": "Time",
+  "number": 21
+}, {
+  "symbol": "🔮",
+  "name": "Magic",
+  "number": 22
+}, {
+  "symbol": "😃",
+  "name": "Joy",
+  "number": 23
+}, {
+  "symbol": "😩",
+  "name": "Tragedy",
   "number": 24
 }];
 var state = {
@@ -1839,7 +1994,7 @@ var state = {
     return state.interaction && state.interaction.type || "none";
   },
   shuffle: function shuffle() {
-    var DEALT_CARDS = 6;
+    var DEALT_CARDS = 5;
     state.interaction = {
       "type": "dealt"
     };
@@ -1861,7 +2016,7 @@ function () {
     value: function render() {
       return preact__WEBPACK_IMPORTED_MODULE_0__["default"].h("div", {
         className: "Mount"
-      }, preact__WEBPACK_IMPORTED_MODULE_0__["default"].h(DivineDomainScreen, null));
+      }, preact__WEBPACK_IMPORTED_MODULE_0__["default"].h("title", null, "Deck of Divine Domains"), preact__WEBPACK_IMPORTED_MODULE_0__["default"].h(DivineDomainScreen, null));
     }
   }]);
 
@@ -1888,17 +2043,13 @@ function () {
     key: "sections",
     get: function get() {
       if (state.interaction == undefined) {
-        return [preact__WEBPACK_IMPORTED_MODULE_0__["default"].h("section", {
-          class: "PromptSection"
-        }, "Your next adventuerer", preact__WEBPACK_IMPORTED_MODULE_0__["default"].h("br", null), "will worship a god of:"), preact__WEBPACK_IMPORTED_MODULE_0__["default"].h("section", {
+        return [preact__WEBPACK_IMPORTED_MODULE_0__["default"].h(PromptSection, null), preact__WEBPACK_IMPORTED_MODULE_0__["default"].h("section", {
           class: "YourDeck"
         }, preact__WEBPACK_IMPORTED_MODULE_0__["default"].h(Deck, null))];
       }
 
       if (state.interaction != undefined) {
-        return [preact__WEBPACK_IMPORTED_MODULE_0__["default"].h("section", {
-          class: "PromptSection"
-        }, "Your next adventuerer", preact__WEBPACK_IMPORTED_MODULE_0__["default"].h("br", null), "will worship a god of:"), preact__WEBPACK_IMPORTED_MODULE_0__["default"].h("section", {
+        return [preact__WEBPACK_IMPORTED_MODULE_0__["default"].h(PromptSection, null), preact__WEBPACK_IMPORTED_MODULE_0__["default"].h("section", {
           class: "SelectedCardsSection"
         }, preact__WEBPACK_IMPORTED_MODULE_0__["default"].h("section", {
           class: "ReshuffleSection"
@@ -1935,6 +2086,25 @@ function () {
   }]);
 
   return DivineDomainScreen;
+}();
+
+var PromptSection =
+/*#__PURE__*/
+function () {
+  function PromptSection() {
+    _classCallCheck(this, PromptSection);
+  }
+
+  _createClass(PromptSection, [{
+    key: "render",
+    value: function render() {
+      return preact__WEBPACK_IMPORTED_MODULE_0__["default"].h("section", {
+        class: "PromptSection"
+      }, "Your next character", preact__WEBPACK_IMPORTED_MODULE_0__["default"].h("br", null), "will worship a god of:");
+    }
+  }]);
+
+  return PromptSection;
 }();
 
 var ReshuffleButton =
@@ -2097,7 +2267,9 @@ function () {
         class: "Name"
       }, this.props.domain.name), preact__WEBPACK_IMPORTED_MODULE_0__["default"].h("div", {
         class: "Symbol"
-      }, this.props.domain.symbol))));
+      }, this.props.domain.symbol), preact__WEBPACK_IMPORTED_MODULE_0__["default"].h("div", {
+        class: "Number"
+      }, roman_numerals__WEBPACK_IMPORTED_MODULE_3___default.a.toRoman(this.props.domain.number)))));
     }
   }, {
     key: "isSelected",
