@@ -1990,15 +1990,14 @@ var state = {
     "domains": []
   },
   "interaction": undefined,
-  getLastInteraction: function getLastInteraction() {
+  "getLastInteraction": function getLastInteraction() {
     return state.interaction && state.interaction.type || "none";
   },
-  shuffle: function shuffle() {
-    var DEALT_CARDS = 5;
+  "shuffle": function shuffle() {
     state.interaction = {
       "type": "dealt"
     };
-    state.dealt.domains = Object(array_shuffle__WEBPACK_IMPORTED_MODULE_1__["default"])(DIVINE_DOMAINS).slice(0, 6);
+    state.dealt.domains = Object(array_shuffle__WEBPACK_IMPORTED_MODULE_1__["default"])(DIVINE_DOMAINS).slice(0, 5);
     console.log("sfx: shuffle");
     state.selected.domains = [];
   }
